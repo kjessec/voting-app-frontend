@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/voting-app-frontend/static/css/main.21c838c7.chunk.css",
+    "main.js": "/voting-app-frontend/static/js/main.8a478aa6.chunk.js",
+    "main.js.map": "/voting-app-frontend/static/js/main.8a478aa6.chunk.js.map",
+    "runtime-main.js": "/voting-app-frontend/static/js/runtime-main.14d59fbd.js",
+    "runtime-main.js.map": "/voting-app-frontend/static/js/runtime-main.14d59fbd.js.map",
+    "static/js/2.3bc57c5c.chunk.js": "/voting-app-frontend/static/js/2.3bc57c5c.chunk.js",
+    "static/js/2.3bc57c5c.chunk.js.map": "/voting-app-frontend/static/js/2.3bc57c5c.chunk.js.map",
+    "index.html": "/voting-app-frontend/index.html",
+    "precache-manifest.522c0e977d69a471c26e1aea1a08bc9a.js": "/voting-app-frontend/precache-manifest.522c0e977d69a471c26e1aea1a08bc9a.js",
+    "service-worker.js": "/voting-app-frontend/service-worker.js",
+    "static/css/main.21c838c7.chunk.css.map": "/voting-app-frontend/static/css/main.21c838c7.chunk.css.map",
+    "static/js/2.3bc57c5c.chunk.js.LICENSE.txt": "/voting-app-frontend/static/js/2.3bc57c5c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.14d59fbd.js",
+    "static/js/2.3bc57c5c.chunk.js",
+    "static/css/main.21c838c7.chunk.css",
+    "static/js/main.8a478aa6.chunk.js"
+  ]
+}
