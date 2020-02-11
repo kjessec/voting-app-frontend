@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.app {
+  margin: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app > header {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app > footer {
+  margin-top: 32px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app > footer > label {
+  display: block;
+}
+
+.app > footer > label > * {
+  display: block;
+  width: 100%;
+} 
+
+.memo {
+  box-shadow: 0px 0px 3px #ccc;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.memo > header {
+  font-size: 22px;
+}
+
+.memo > div {
+  margin-top: 12px;
+}
+
+
+/* /////////////////////// */
+.vote {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.vote > .votee {
+  box-sizing: border-box;
+  padding: 16px;
+  width: 160px;
+  height: 200px;
+  box-shadow: 1px 1px 5px #aaa;
+  margin-right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.vote > .votee button {
+  width: 100%;
+
+}
+
+
+/* context */
+.context {
+  padding: 36px;
+}
+
+.context > div > input {
+  display: block;
+  margin-bottom: 16px;
+  padding: 8px;
+  min-width: 330px;
 }

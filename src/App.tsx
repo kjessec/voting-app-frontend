@@ -1,26 +1,84 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-const App = () => {
+import { withKeyContext, ComponentProps } from './KeyContext';
+
+
+const MemoApp: React.FC<ComponentProps> = ({
+  useContract,
+  getContract
+}) => {
+  const contract = useContract()
+
+  const [state, setState] = useState('')
+  const [inTransaction, setInTransaction] = useState(false)
+
+  const onMemoInject = async (state: string) => {
+    try {
+      setInTransaction(true)
+      const ctx = await getContract()
+      const injected = await ctx.methods.main(state).send()
+      await injected.confirmation()
+      setState('')
+      setInTransaction(false)
+    } catch (e) {
+      alert(e.message)
+      setInTransaction(true)
+    }
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        Decentralized Memo<br/>
       </header>
+
+      <main>
+        <Memo content={contract?.string}/>
+      </main>
+
+      <footer>
+        <label>
+          <span>Content</span>
+          <textarea
+            placeholder="Write your memo here"
+            value={state}
+            disabled={inTransaction}
+            onChange={ev => setState(ev.currentTarget.value) }
+          />
+        </label>
+
+        <button
+          disabled={inTransaction}
+          onClick={() => onMemoInject(state)}
+        >
+          {inTransaction ? 'Waiting for block confirmation...' : 'Write Memo'}
+        </button>
+      </footer>
     </div>
+
   );
 }
 
-export default App;
+interface Memo {
+  content: string
+}
+const Memo: React.FC<Memo> = ({
+  content
+}) => {
+
+  return (
+    <div className="memo">
+      <header>
+        Memo says...
+      </header>
+
+      <div>
+        {content}
+      </div>
+    </div>
+  )
+}
+
+export default withKeyContext('KT1DBaG4RWxHw8Sjoj4gwJSeQ4KBZ61TtGvX', MemoApp)
